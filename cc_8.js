@@ -86,3 +86,17 @@ function filterLargeTransactions(transactions, filterFunction){     //declared h
 
 console.log(filterLargeTransactions(transactions, amount => amount > 1000));    //logged the function output, which is a function that filters transactions < 1000
 // Expected output: [1500, 3200, 2500])
+
+//Task 7: Closures
+
+function createCartTracker(){           //declared a function that returns another function 
+    cartValue = 0;                      //declared a variable to store the initial and running total
+    return function(purchaseNew){       //this function adds new purchases to the running total and returns the total
+        cartValue += purchaseNew;
+        return cartValue; 
+
+}};
+
+let cart = createCartTracker();                //logged the variables using template literal
+console.log(`Cart Total Value: $${cart(20)}`); // Expected output: "Total Cart Value: $20"
+console.log(`Cart Total Value: $${cart(35)}`); // Expected output: "Total Cart Value: $55"
