@@ -40,3 +40,24 @@ let calculateServiceFee = (amount, serviceType) => {        //declared an arrow 
 console.log(`Service Fee: $${calculateServiceFee(200, "Premium")}`); //logged the function using test data // Expected output: "Service Fee: $30.00"
 console.log(`Service Fee: $${calculateServiceFee(500, "Standard")}`); // Expected output: "Service Fee: $50.00"
 
+
+//Task 4: Parameters and Arguments
+
+function calculateRentalCost(days, carType, insurance = false){        //declared a function with 1 numerical, 1 string, 1 boolean variables
+    let rate = 0;                                                       //declared a variable to identify the price rate depending on the car category 
+
+    if (carType === "Economy") {rate = 40}                              //used if else statement to assing the right price rate depending on the car category
+    else if(carType === "Standard") {rate = 60}
+    else if(carType === "Luxury") {rate = 100};
+
+    let carDailyCost = days * rate;                         
+    //the rate is multiplied by the number of days and if they choose to have insurance (insurance = true) there is an extra $20 charge per day
+    if (insurance){carDailyCost += 20 * days};
+    
+
+    return `Total Rental Cost: $${carDailyCost.toFixed(2)}`;    //returned the output using template literals and toFixed to round the output to 2 decimal places
+
+};
+
+console.log(calculateRentalCost(3, "Economy", true)); // logged the output using test data // Expected output: "Total Rental Cost: $180"
+console.log(calculateRentalCost(5, "Luxury", false)); // Expected output: "Total Rental Cost: $500"
