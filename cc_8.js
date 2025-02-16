@@ -100,3 +100,18 @@ function createCartTracker(){           //declared a function that returns anoth
 let cart = createCartTracker();                //logged the variables using template literal
 console.log(`Cart Total Value: $${cart(20)}`); // Expected output: "Total Cart Value: $20"
 console.log(`Cart Total Value: $${cart(35)}`); // Expected output: "Total Cart Value: $55"
+
+
+//Task 8: Recursion in JavaScript
+
+function calculateSavings(years, amount){           //declared a recursive function that calls itself until years = 10, starting from the given number of years
+    if (years >= 10) {return amount.toFixed(2);}
+
+    return calculateSavings (years + 1, amount * 1.05)  ////it is a compound interest, which means that every year the number of years is increases by 1 and interest applies to the amount, which alrealy includes the interest from the previous year
+
+};
+
+console.log(`Projected Savings: $${calculateSavings(8, 1000)}`);  //logged the function output; the function runs 2 times in this case since it starts from year 8 to 10  // Expected output: "Projected Savings: $1102.50"
+console.log(`Projected Savings: $${calculateSavings(5, 5000)}`);  //logged the function output; the function runs 5 times in this case since it starts from year 5 to 10   // Expected output: "Projected Savings: $6381.41"
+// Expected output: "Projected Savings: $1102.50"
+// Expected output: "Projected Savings: $6381.41"
